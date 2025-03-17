@@ -114,3 +114,6 @@ for token in tokens:
 
 for token in tokens:
     respostas_palavras_int[token] = len(respostas_palavras_int) + 1
+
+#Criação do dicionário inverso com o dicionário de respostas
+respostas_int_palavras = {p_i: p for p, p_i in respostas_palavras_int.items()} #p:palavra i:item
