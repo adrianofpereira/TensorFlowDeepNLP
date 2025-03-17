@@ -63,3 +63,11 @@ def limpa_texto(texto):
 limpa_texto("ExeMplo i'm #@")
 
 #Limpeza das Pergurtas
+perguntas_limpas =[]    
+for pergunta in perguntas:
+    perguntas_limpas.append(limpa_texto(pergunta))
+    
+#Limpeza Respostas
+respostas_limpas =[]    
+for resposta in respostas:
+    respostas_limpas.append(limpa_texto(resposta))
