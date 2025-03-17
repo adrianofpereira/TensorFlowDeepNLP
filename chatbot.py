@@ -71,3 +71,20 @@ for pergunta in perguntas:
 respostas_limpas =[]    
 for resposta in respostas:
     respostas_limpas.append(limpa_texto(resposta))
+    
+#Criação de um dicionário que mapeia cada palavra e o número de ocorrências
+palavras_contagem = {}
+for pegunta in perguntas_limpas:
+    #print(pergunta)
+    for palavra in pergunta.split():
+        if palavra not in palavras_contagem:
+            palavras_contagem[palavra] = 1
+        else:
+            palavras_contagem[palavra] += 1
+
+for resposta in respostas_limpas:
+    for palavra in resposta.split():
+        if palavra not in palavras_contagem:
+            palavras_contagem[palavra] = 1
+        else:
+            palavras_contagem[palavra] += 1
