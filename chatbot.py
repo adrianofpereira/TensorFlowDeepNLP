@@ -106,4 +106,11 @@ for palavra, contagem in palavras_contagem.items():
     if contagem >= limite:
         respostas_palavras_int[palavra] = numero_palavra
         numero_palavra += 1
-    
+
+#Adição de tokens no dicionário
+tokens = ['<PAD>', '<EOS>', '<OUT>', '<SOS>']
+for token in tokens:
+    perguntas_palavras_int[token] = len(perguntas_palavras_int) + 1
+
+for token in tokens:
+    respostas_palavras_int[token] = len(respostas_palavras_int) + 1
