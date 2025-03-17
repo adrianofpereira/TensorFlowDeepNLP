@@ -99,4 +99,11 @@ for palavra, contagem in palavras_contagem.items():
     if contagem >= limite:
         perguntas_palavras_int[palavra] = numero_palavra
         numero_palavra += 1
-        
+
+respostas_palavras_int = {}
+numero_palavra = 0
+for palavra, contagem in palavras_contagem.items():
+    if contagem >= limite:
+        respostas_palavras_int[palavra] = numero_palavra
+        numero_palavra += 1
+    
