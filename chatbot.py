@@ -88,3 +88,15 @@ for resposta in respostas_limpas:
             palavras_contagem[palavra] = 1
         else:
             palavras_contagem[palavra] += 1
+            
+#Remoção de palavras não frequentes e tokenização(dois dicionários)
+limite = 20 #palavras que aparecem mais de 20x
+perguntas_palavras_int = {}
+numero_palavra = 0
+for palavra, contagem in palavras_contagem.items():
+    #print(palavra)
+    #print(contagem)
+    if contagem >= limite:
+        perguntas_palavras_int[palavra] = numero_palavra
+        numero_palavra += 1
+        
