@@ -31,4 +31,14 @@ for conversa in conversas[:-1]:
     #print(conversa)
     _conversa = conversa.split(' +++$+++ ')[-1][1:-1].replace("'","").replace(" ","")
     #print(_conversa)
-    conversas_id.append(conversa.split(','))
+    conversas_id.append(_conversa.split(','))
+
+#Separação dass Perguntas e Respostas
+perguntas = []
+respostas = []
+for conversa in conversas_id:
+    for i in range(len(conversa)-1):
+        #print(i)
+        print(conversa)
+        perguntas.append(id_para_linha[conversa[i]])
+        respostas.append(id_para_linha[conversa[i + 1]])
