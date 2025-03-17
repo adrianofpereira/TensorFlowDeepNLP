@@ -25,7 +25,7 @@ for linha in linhas:
         print(_linha[4])
         id_para_linha[_linha[0]] = _linha[4]
         
-#Criação de uma lsita com todas as conversas
+#Criação de uma lista com todas as conversas
 conversas_id = []
 for conversa in conversas[:-1]:
     #print(conversa)
@@ -33,7 +33,7 @@ for conversa in conversas[:-1]:
     #print(_conversa)
     conversas_id.append(_conversa.split(','))
 
-#Separação dass Perguntas e Respostas
+#Separação das Perguntas e Respostas
 perguntas = []
 respostas = []
 for conversa in conversas_id:
