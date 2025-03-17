@@ -117,3 +117,7 @@ for token in tokens:
 
 #Criação do dicionário inverso com o dicionário de respostas
 respostas_int_palavras = {p_i: p for p, p_i in respostas_palavras_int.items()} #p:palavra i:item
+
+#Adição do token final de string <EOS> para o final de cada resposta
+for i in range(len(respostas_limpas)):
+    respostas_limpas[i] += ' <EOS>'
