@@ -170,4 +170,16 @@ def preprocessamento_saidas(saidas, palavra_para_int, batch_size):
     direita = tf.strided_slice(saidas, [0,0], [batch_size, -1], strides = [1,1])#Todos os id com escessão EOS
     saidas_processadas  = tf.concat([esquerda,direita],1)
     return saidas_processadas
+
+#Criação da Camada RNN do Codificador
+def rnn_codificador(rnn_entradas, rnn_tamanho, numero_camadas, keep_prob, tamanho_sequencia):
+    lstm = tf.contrib.rnn.LSTMCell(rnn_tamanho)
+    lstm_dropout = tf.contrib.rnn.DropoutWrapper(lstm, input_keep_prob = keep_prob)
+    encoder_celula = tf.contrib.rnn.MultRNNCell([lstm_dropout] * numero_camadas)
+    encoder_estado = tf.nn.bidirectional_dynamic_rnn(cell_fw = encoder_celula,
+                                                     cell_fw = encoder_celula,
+                                                     sequence_lenght = tamanho_sequencia,
+                                                     inputs = rnn_entradas,
+                                                     dtype = tf.float32)
+    return encoder_estado
     
