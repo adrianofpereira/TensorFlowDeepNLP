@@ -156,9 +156,18 @@ for tamanho in range(1, 25 + 1):
             respostas_limpas_ordenadas.append(respostas_para_int[i[0]])
             
 #Construção de Placeholders para entradas e saidas (Modelo Seq2Seq)
+#[64,25]
 def entradas_modelo():
     entradas = tf.placeholder(tf.int32, [None], name = 'entradas')
     saidas = tf.placeholder(tf.int32, [None,None], name = 'saidas')
     lr = tf.placeholder(tf.float32, name = 'learning_rate')
     keep_prob = tf.placeholder(tf.float, name = 'keep_prob')
     return entradas, saidas, lr, keep_prob
+
+#Pré-Processamento das saidas(alvos)
+def preprocessamento_saidas(saidas, palavra_para_int, batch_size):
+    esquerda = tf.fill([batch_size, 1],palavra_para_int['<SOS>'])
+    direita = tf.strided_slice(saidas, [0,0], [batch_size, -1], strides = [1,1])#Todos os id com escessão EOS
+    saidas_processadas  = tf.concat([esquerda,direita],1)
+    return saidas_processadas
+    
